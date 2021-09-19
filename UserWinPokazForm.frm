@@ -13,8 +13,7 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Public a, b, c, d As Long                  (zadeklarowane w MODULE "NoweIndeksy")
-'Public Tbl1(0 To 1000) As Variant          (zadeklarowane w MODULE "NoweIndeksy")
+
 Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
     (ByVal lpClassName As String, ByVal lpWindowName As String) As Long
 Private Declare Function GetWindowLong Lib "user32" Alias "GetWindowLongA" ( _
