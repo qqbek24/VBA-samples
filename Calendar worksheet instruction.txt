@@ -1,5 +1,5 @@
 - Paste below code in excel worksheet VBE
-- change in worksheet cell format do default date format
+- change in worksheet cell format to default date format
 
 
 Private Sub Worksheet_SelectionChange(ByVal Target As Range)
