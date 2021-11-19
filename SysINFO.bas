@@ -13,7 +13,7 @@ Public wylPOKAZb As Integer
 
 '********************************************************************************************************************************************
 '''''''''''''''''''''''''''''''''''''''''''''''autor: Jakub Koziorowski''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
+'''''''''''''''''''''''''''''''''''''''''''''''global, public variable - PC user default data format
 Sub data_Format()
     Dim localeID As Long
     Dim bLen As Long
@@ -29,9 +29,13 @@ Sub data_Format()
         End If
     SystemShortDateFormat = sBuf
 End Sub
+        
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Sys_INFO_show()
     UserWinPokazForm.Show
 End Sub
+        
+'''''''''''''''''''''''''''''''''''''''''''''''lists procedures from active addins and workbooks
 Sub ListProcedures()
     Dim sProc() As String
     Dim lngLine As Long
@@ -89,7 +93,4 @@ Sub ListProcedures()
         If (UserWinPokazForm.PokazB.Visible = True) = True Then UserWinPokazForm.PokazB.Visible = False
             wylPOKAZb = 1
             UserWinPokazForm.Show
-End Sub
-Sub Check_Fun(FunkcjaStr As String)
-    '...
 End Sub
