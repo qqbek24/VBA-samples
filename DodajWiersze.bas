@@ -72,20 +72,28 @@ Names:
                     Application.Calculate
 error:
 End Sub
+  
+'''''''''''''''''''''''''''''''''''''''''''''''columns hide, to the right from active cell
 Sub Columns_View_Hide()
     Dim lastCol As Integer
         lastCol = ActiveCell.Column + 1
         Range(Cells(1, lastCol), Cells(Rows.Count, Columns.Count)).EntireColumn.Hidden = True
 End Sub
+  
+'''''''''''''''''''''''''''''''''''''''''''''''rows hide, to the bottom from active cell
 Sub Rows_View_Hide()
     Dim LastRow As Integer
         LastRow = ActiveCell.Row + 1
         Range(Cells(LastRow, 1), Cells(Rows.Count, Columns.Count)).EntireRow.Hidden = True
 End Sub
+  
+  '''''''''''''''''''''''''''''''''''''''''''''''unhide columns and rows, in active worksheet
 Sub Reveal_ColumnsandRows()
         Cells.EntireColumn.Hidden = False
         Cells.EntireRow.Hidden = False
 End Sub
+  
+  '''''''''''''''''''''''''''''''''''''''''''''''add vba code (string) to the VBE modul of worksheet
 Sub DodajKod_DoArkusza(Wbk1 As Workbook, Wks1 As Worksheet)
     Dim ArkName As String
     On Error GoTo error
@@ -103,16 +111,18 @@ Sub DodajKod_DoArkusza(Wbk1 As Workbook, Wks1 As Worksheet)
             End If
 error:
 End Sub
+    
+'''''''''''''''''''''''''''''''''''''''''''''''add rows, before active row
 Sub Dodaj_Wiersze()
     Dim Wks As Worksheet
     Dim xRow, a As Long
     Dim xOdp As Variant
     Application.Calculation = xlCalculationManual
     Set Wks = ThisWorkbook.ActiveSheet
-        xOdp = MsgBox("1. Czy zaznaczy³aœ/eœ ca³y wiersz ?" & Chr(13) & _
-        "2. Wiersze zostan¹ dodane powy¿ej zaznaczonego wiersza." & Chr(13) & _
-        "3. Formatowanie dodanych wierszy, bêdzie takie jak format wiersza" & Chr(13) & _
-        "   powy¿ej tego, który zaznaczy³aœ/eœ", vbOKCancel)
+        xOdp = MsgBox("1. Czy zaznaczyÂ³aÅ“/eÅ“ caÂ³y wiersz ?" & Chr(13) & _
+        "2. Wiersze zostanÂ¹ dodane powyÂ¿ej zaznaczonego wiersza." & Chr(13) & _
+        "3. Formatowanie dodanych wierszy, bÃªdzie takie jak format wiersza" & Chr(13) & _
+        "   powyÂ¿ej tego, ktÃ³ry zaznaczyÂ³aÅ“/eÅ“", vbOKCancel)
     Select Case xOdp
         Case vbOK
             GoTo Dodaj
@@ -121,7 +131,7 @@ Sub Dodaj_Wiersze()
     End Select
 Dodaj:
     a = 0
-    xRow = Application.InputBox("Ile wierszy mam dodaæ.", _
+    xRow = Application.InputBox("Ile wierszy mam dodaÃ¦.", _
          "Dodawanie wierszy", , 250, 75, "", , 1)
     If xRow = False Then
         Application.Calculation = xlCalculationAutomatic: Exit Sub
@@ -135,6 +145,8 @@ Dodaj:
     End If
     Application.Calculation = xlCalculationAutomatic
 End Sub
+            
+'''''''''''''''''''''''''''''''''''''''''''''''add multiple rows, before each row in selection
 Sub add_Multiple_ROWS()
     Dim Select1 As Range
     Dim Komorka As Range
@@ -148,7 +160,7 @@ Sub add_Multiple_ROWS()
         Set Wbk1 = Application.ActiveWorkbook
         Set Wks1 = Wbk1.ActiveSheet
         Set Select1 = Selection
-            xOdp = MsgBox("Czy napewno chcesz dodaæ wiêksz¹ iloœæ wierszy ???", vbOKCancel)
+            xOdp = MsgBox("Czy napewno chcesz dodaÃ¦ wiÃªkszÂ¹ iloÅ“Ã¦ wierszy ???", vbOKCancel)
         Select Case xOdp
             Case vbOK
                 GoTo Dodaj
@@ -157,14 +169,14 @@ Sub add_Multiple_ROWS()
         End Select
 Dodaj:
     a = 0
-    xRow = Application.InputBox("Ile wierszy mam dodaæ.", _
+    xRow = Application.InputBox("Ile wierszy mam dodaÃ¦.", _
          "Dodawanie wierszy", , 250, 75, "", , 1)
     If xRow = False Then
         Application.Calculation = xlCalculationAutomatic: Exit Sub
     ElseIf xRow = 0 Then
         Application.Calculation = xlCalculationAutomatic: Exit Sub
     Else
-        yRow = Application.InputBox("Co który wiersz mam dodaæ.", _
+        yRow = Application.InputBox("Co ktÃ³ry wiersz mam dodaÃ¦.", _
          "Dodawanie wierszy", , 250, 75, "", , 1)
         x3 = 0
         x1 = Select1.Rows.Count
@@ -185,16 +197,18 @@ Dodaj:
     End If
     Application.Calculation = xlCalculationAutomatic
 End Sub
+                        
+'''''''''''''''''''''''''''''''''''''''''''''''add columns, before active columns
 Sub Dodaj_Kolumny()
     Dim Wks As Worksheet
     Dim aCol, xCol, a As Long
     Dim xOdp As Variant
     Application.Calculation = xlCalculationManual
     Set Wks = ThisWorkbook.ActiveSheet
-        xOdp = MsgBox("1. Czy zaznaczy³aœ/eœ ca³¹ kolumnê ?" & Chr(13) & _
-        "2. Kolumny zostan¹ dodane przed zaznaczon¹ kolumn¹." & Chr(13) & _
-        "3. Formatowanie dodanych kolumn, bêdzie takie jak format kolumny" & Chr(13) & _
-        "   przed t¹, któr¹ zaznaczy³aœ/eœ", vbOKCancel)
+        xOdp = MsgBox("1. Czy zaznaczyÂ³aÅ“/eÅ“ caÂ³Â¹ kolumnÃª ?" & Chr(13) & _
+        "2. Kolumny zostanÂ¹ dodane przed zaznaczonÂ¹ kolumnÂ¹." & Chr(13) & _
+        "3. Formatowanie dodanych kolumn, bÃªdzie takie jak format kolumny" & Chr(13) & _
+        "   przed tÂ¹, ktÃ³rÂ¹ zaznaczyÂ³aÅ“/eÅ“", vbOKCancel)
     Select Case xOdp
         Case vbOK
             GoTo Dodaj
@@ -203,7 +217,7 @@ Sub Dodaj_Kolumny()
     End Select
 Dodaj:
     a = 0
-    xCol = Application.InputBox("Ile kolumn mam dodaæ.", _
+    xCol = Application.InputBox("Ile kolumn mam dodaÃ¦.", _
          "Dodawanie wierszy", , 250, 75, "", , 1)
     If xCol = False Then
         Application.Calculation = xlCalculationAutomatic: Exit Sub
@@ -217,6 +231,8 @@ Dodaj:
     End If
     Application.Calculation = xlCalculationAutomatic
 End Sub
+                                
+'''''''''''''''''''''''''''''''''''''''''''''''clear entire worksheet from any data and format cond.
 Sub CzyscArkusz()
     Dim Wbk As Workbook
     Dim Wks As Worksheet
@@ -227,13 +243,15 @@ Sub CzyscArkusz()
             Wks.Cells.Font.Size = 11
             Wks.Columns.AutoFit
 End Sub
+                                    
+'''''''''''''''''''''''''''''''''''''''''''''''go to row...
 Sub Idz_do_wiersza()
     Dim xRowNr As Long
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
         Set WbkLoop = Application.ActiveWorkbook
         Set WksLoop = WbkLoop.ActiveSheet
-            xRowNr = Application.InputBox("PrzejdŸ do wiersza nr: ", _
+            xRowNr = Application.InputBox("PrzejdÅ¸ do wiersza nr: ", _
                  "Wiersz Loop", , 250, 75, "", , 1)
             If xRowNr = 0 Then
                 Exit Sub
@@ -243,6 +261,8 @@ Sub Idz_do_wiersza()
                 WksLoop.Cells(xRowNr, 1).Select
             End If
 End Sub
+                                              
+'''''''''''''''''''''''''''''''''''''''''''''''how many worksheets in workbook
 Sub IleArkuszy_w_pliku()
     Dim xArk As Long
     Dim WksLoop As Worksheet
@@ -252,6 +272,8 @@ Sub IleArkuszy_w_pliku()
             xArk = WbkLoop.Worksheets.Count
             MsgBox "Ten plik zawiera " & xArk & " arkuszy"
 End Sub
+                                                  
+'''''''''''''''''''''''''''''''''''''''''''''''check if value, object is in collection
 Function czyWkolekcji(igla As Variant, stog As Collection) As Boolean
 Dim element As Variant
 czyWkolekcji = False
@@ -259,9 +281,13 @@ For Each element In stog
     If igla = element Then czyWkolekcji = True
 Next element
 End Function
+                                                  
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub szukajUForm_otw()
     SzukajRejestrZP.Show vbModeless
 End Sub
+                                                  
+'''''''''''''''''''''''''''''''''''''''''''''''search in workbook with multiple cond.
 Sub Szukaj_w_rejestrze_ZP()
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
@@ -278,7 +304,7 @@ Sub Szukaj_w_rejestrze_ZP()
         m = 0: n = 47: o = 0
         Set xObj = ZakresSzuk.Find(NrZP, After:=WksLoop.Cells(n, 3), lookat:=xlWhole, MatchCase:=False)
         If xObj Is Nothing Then
-            MsgBox "nie znalaz³em"
+            MsgBox "nie znalazÂ³em"
             Exit Sub
         Else
             m = ZakresSzuk.Find(NrZP, After:=WksLoop.Cells(n, 3), lookat:=xlWhole, MatchCase:=False).Row
@@ -288,12 +314,12 @@ Sub Szukaj_w_rejestrze_ZP()
             If n = LastRow Then Exit Sub
             If o > 1 Then
                 If n = m Then
-                    MsgBox "nie znalaz³em"
+                    MsgBox "nie znalazÂ³em"
                     Exit Sub
                 End If
             End If
             If IsError(ZakresSzuk.Find(NrZP, After:=WksLoop.Cells(n, 3), lookat:=xlWhole, MatchCase:=False).Row) = True Then
-                MsgBox "nie znalaz³em"
+                MsgBox "nie znalazÂ³em"
                 Exit Sub
             Else
                 o = o + 1
@@ -315,6 +341,8 @@ NastRow:
         Loop Until n = LastRow
 Application.ScreenUpdating = True
 End Sub
+                                                                        
+'''''''''''''''''''''''''''''''''''''''''''''''earch in workbook with multiple cond. - find next
 Sub Szukaj_W_RejZP_Next()
     NastepnyX = 1
     If SzukajRejestrZP.TextNrSprawy.Value <> "" Then
@@ -334,6 +362,8 @@ Sub Szukaj_W_RejZP_Next()
         Call Szukaj_w_rejestrze_ZP
     End If
 End Sub
+                                                                        
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Szukaj_ZP_POdacie()
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
@@ -351,6 +381,8 @@ Sub Szukaj_ZP_POdacie()
             If WksLoop.Cells(n, 2) = SzukanaDATA Then WksLoop.Cells(n, 1).Activate
         Loop Until n = LastRow
 End Sub
+                                                                                
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Szukaj_NrSprawy_w_RejestrzeZP()
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
@@ -366,7 +398,7 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP()
         m = 0: n = 53: o = 0
         Set xObj = ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 13), lookat:=xlWhole, MatchCase:=False)
         If xObj Is Nothing Then
-            MsgBox "nie znalaz³em"
+            MsgBox "nie znalazÂ³em"
             Exit Sub
         Else
             m = ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 13), lookat:=xlWhole, MatchCase:=False).Row
@@ -376,12 +408,12 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP()
             If n = LastRow Then Exit Sub
             If o > 1 Then
                 If n = m Then
-                    MsgBox "nie znalaz³em"
+                    MsgBox "nie znalazÂ³em"
                     Exit Sub
                 End If
             End If
             If IsError(ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 13), lookat:=xlWhole, MatchCase:=False).Row) = True Then
-                MsgBox "nie znalaz³em"
+                MsgBox "nie znalazÂ³em"
                 Exit Sub
             Else
                 o = o + 1
@@ -392,6 +424,8 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP()
         Loop Until n = LastRow
 Application.ScreenUpdating = True
 End Sub
+                                                                                                  
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Szukaj_NrSprawy_w_RejestrzeZP_Nowe()
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
@@ -407,7 +441,7 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP_Nowe()
         m = 0: n = 53: o = 0
         Set xObj = ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 14), lookat:=xlWhole, MatchCase:=False)
         If xObj Is Nothing Then
-            MsgBox "nie znalaz³em"
+            MsgBox "nie znalazÂ³em"
             Exit Sub
         Else
             m = ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 14), lookat:=xlWhole, MatchCase:=False).Row
@@ -417,12 +451,12 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP_Nowe()
             If n = LastRow Then Exit Sub
             If o > 1 Then
                 If n = m Then
-                    MsgBox "nie znalaz³em"
+                    MsgBox "nie znalazÂ³em"
                     Exit Sub
                 End If
             End If
             If IsError(ZakresSzuk.Find(NrSprawyXX, After:=WksLoop.Cells(n, 14), lookat:=xlWhole, MatchCase:=False).Row) = True Then
-                MsgBox "nie znalaz³em"
+                MsgBox "nie znalazÂ³em"
                 Exit Sub
             Else
                 o = o + 1
@@ -433,6 +467,8 @@ Sub Szukaj_NrSprawy_w_RejestrzeZP_Nowe()
         Loop Until n = LastRow
 Application.ScreenUpdating = True
 End Sub
+                                                                                                                    
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Szukaj_NrZZ_w_RejestrzeZP()
     Dim WksLoop As Worksheet
     Dim WbkLoop As Workbook
@@ -449,7 +485,7 @@ Sub Szukaj_NrZZ_w_RejestrzeZP()
         m = 0: n = 53: o = 0
         Set xObj = ZakresSzuk.Find(NrZZXX, After:=WksLoop.Cells(n, xCol), lookat:=xlWhole, MatchCase:=False)
         If xObj Is Nothing Then
-            MsgBox "nie znalaz³em"
+            MsgBox "nie znalazÂ³em"
             Exit Sub
         Else
             m = ZakresSzuk.Find(NrZZXX, After:=WksLoop.Cells(n, xCol), lookat:=xlWhole, MatchCase:=False).Row
@@ -459,12 +495,12 @@ Sub Szukaj_NrZZ_w_RejestrzeZP()
             If n = LastRow Then Exit Sub
             If o > 1 Then
                 If n = m Then
-                    MsgBox "nie znalaz³em"
+                    MsgBox "nie znalazÂ³em"
                     Exit Sub
                 End If
             End If
             If IsError(ZakresSzuk.Find(NrZZXX, After:=WksLoop.Cells(n, xCol), lookat:=xlWhole, MatchCase:=False).Row) = True Then
-                MsgBox "nie znalaz³em"
+                MsgBox "nie znalazÂ³em"
                 Exit Sub
             Else
                 o = o + 1
@@ -475,6 +511,8 @@ Sub Szukaj_NrZZ_w_RejestrzeZP()
         Loop Until n = LastRow
 Application.ScreenUpdating = True
 End Sub
+                                                                                                                                        
+'''''''''''''''''''''''''''''''''''''''''''''''fill empty rows in selection with last value
 Sub uzupelnijPuste2()
     Dim Komorka As Range
     Dim poprzedniaWartosc As Variant
@@ -503,6 +541,8 @@ Sub uzupelnijPuste2()
             Next
     Next xSel
 End Sub
+                                                                                                                                          
+'''''''''''''''''''''''''''''''''''''''''''''''colour duplicates in selection
 Sub kolorujDuplikaty2()
 Dim pamiec2 As New Collection
 Dim Komorka As Range
@@ -511,6 +551,8 @@ For Each Komorka In Selection
     pamiec2.Add Komorka.Value
 Next Komorka
 End Sub
+                                                                                                                                          
+'''''''''''''''''''''''''''''''''''''''''''''''autofill enumeration
 Sub AutoNumeracja_Zaznaczenie()
     Dim a, b As Long
     Dim Wkb As Workbook
@@ -526,6 +568,8 @@ Sub AutoNumeracja_Zaznaczenie()
     Next
     Selection.Cells.HorizontalAlignment = xlCenter
 End Sub
+                                                                                                                                            
+'''''''''''''''''''''''''''''''''''''''''''''''autofill enumeration, only visible rows (unhidden)
 Sub AutoNumeracja_Zaznaczenie_Widoczne()
     Dim a, b As Long
     Dim Wkb As Workbook
@@ -545,6 +589,8 @@ Sub AutoNumeracja_Zaznaczenie_Widoczne()
     Next
     Selection.Cells.HorizontalAlignment = xlCenter
 End Sub
+                                                                                                                                              
+'''''''''''''''''''''''''''''''''''''''''''''''convert formulas to values
 Sub Na_tekst()
     Dim xRowNr As Long
     Dim WksLoop As Worksheet
@@ -555,6 +601,8 @@ Sub Na_tekst()
             Selection.PasteSpecial xlPasteValues
             'WbkLoop.Save
 End Sub
+                                                                                                                                                  
+'''''''''''''''''''''''''''''''''''''''''''''''last not empty row in column
 Function Ostatni_Pelny_Wiersz_W_Kolumnie_dodatek(xCol As Integer, Optional NazwaArk As String) As Long
     Dim WbkA As Workbook
     Dim WksA As Worksheet
@@ -566,6 +614,8 @@ Function Ostatni_Pelny_Wiersz_W_Kolumnie_dodatek(xCol As Integer, Optional Nazwa
         End If
         Ostatni_Pelny_Wiersz_W_Kolumnie_dodatek = WksA.Cells(Rows.Count, xCol).End(xlUp).Row
 End Function
+                                                                                                                                                    
+                                                                                                                                                    
 Function Nazwa_Aktywnego_Arkusza() As String
     Dim WbkAkt As Workbook
     Dim WksAkt As Worksheet
@@ -573,6 +623,8 @@ Function Nazwa_Aktywnego_Arkusza() As String
         Set WksAkt = WbkAkt.ActiveSheet
     Nazwa_Aktywnego_Arkusza = WksAkt.Name
 End Function
+
+
 Sub Na_Duze_Litery()
     Dim xRowNr As Long
     Dim WksLoop As Worksheet
@@ -585,6 +637,8 @@ Sub Na_Duze_Litery()
                 Kom.Value = UCase(Kom)
             Next
 End Sub
+
+
 Sub Na_Male_Litery()
     Dim xRowNr As Long
     Dim WksLoop As Worksheet
@@ -597,12 +651,16 @@ Sub Na_Male_Litery()
                 Kom.Value = LCase(Kom)
             Next
 End Sub
+
+
 Sub Stworz_Ark_Zaznaczenie()
     Dim Komorka As Range
     For Each Komorka In Selection
         Sheets.Add(After:=Sheets(Sheets.Count)).Name = Komorka.Value
     Next
 End Sub
+
+
 Sub Arkusze_Zbieram()
     Dim WkbALARM As Workbook
     Dim WksALARM As Worksheet
@@ -643,6 +701,8 @@ Nast:
             WksZbior.Columns.AutoFit
             WksZbior.Rows.AutoFit
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''remove format conditions in worksheet (back to default)
 Sub Rozklad_Arkusza_FormatOut()
     Dim WkbALARM As Workbook
     Dim WksALARM As Worksheet
@@ -655,13 +715,14 @@ Sub Rozklad_Arkusza_FormatOut()
         Next
 End Sub
 
+'''''''''''''''''''''''''''''''''''''''''''''''change polish and some special char to ... "*, ?"
 Function Zamien_tekst(TekstPrzed As String) As String
     Dim TekstPo As String
     Dim a, b As Long
     Dim TblZnak As New Collection
     Dim a1, a2, a3 As String
-        TblZnak.Add "¥": TblZnak.Add "Æ": TblZnak.Add "Ê": TblZnak.Add "£": TblZnak.Add "Ñ"
-        TblZnak.Add "Ó": TblZnak.Add "Œ": TblZnak.Add "": TblZnak.Add "¯": TblZnak.Add "."
+        TblZnak.Add "Â¥": TblZnak.Add "Ã†": TblZnak.Add "ÃŠ": TblZnak.Add "Â£": TblZnak.Add "Ã‘"
+        TblZnak.Add "Ã“": TblZnak.Add "Å’": TblZnak.Add "Â": TblZnak.Add "Â¯": TblZnak.Add "."
         TblZnak.Add "/": TblZnak.Add "\": TblZnak.Add ";": TblZnak.Add ":": TblZnak.Add "'"
         TblZnak.Add """": TblZnak.Add "-": TblZnak.Add "+": TblZnak.Add "_": TblZnak.Add " "
         TblZnak.Add ",": TblZnak.Add "**": TblZnak.Add "***": TblZnak.Add "??": TblZnak.Add "*?"
@@ -681,6 +742,8 @@ Function Zamien_tekst(TekstPrzed As String) As String
             TekstPo = RTrim(TekstPo)
                 Zamien_tekst = TekstPo
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''month
 Function Miesiac_Slownie(KomorkaD As Range) As String
     Dim ms As Integer
     If IsDate(KomorkaD) = True Then
@@ -688,23 +751,25 @@ Function Miesiac_Slownie(KomorkaD As Range) As String
             'Miesiac_Slownie=KomorkaD
         Else
             ms = CInt(Month(KomorkaD.Value))
-            If ms = 1 Then Miesiac_Slownie = "styczeñ": Exit Function
+            If ms = 1 Then Miesiac_Slownie = "styczeÃ±": Exit Function
             If ms = 2 Then Miesiac_Slownie = "luty": Exit Function
             If ms = 3 Then Miesiac_Slownie = "marzec": Exit Function
-            If ms = 4 Then Miesiac_Slownie = "kwiecieñ": Exit Function
+            If ms = 4 Then Miesiac_Slownie = "kwiecieÃ±": Exit Function
             If ms = 5 Then Miesiac_Slownie = "maj": Exit Function
             If ms = 6 Then Miesiac_Slownie = "czerwiec": Exit Function
             If ms = 7 Then Miesiac_Slownie = "lipiec": Exit Function
-            If ms = 8 Then Miesiac_Slownie = "sierpieñ": Exit Function
-            If ms = 9 Then Miesiac_Slownie = "wrzesieñ": Exit Function
-            If ms = 10 Then Miesiac_Slownie = "paŸdziernik": Exit Function
+            If ms = 8 Then Miesiac_Slownie = "sierpieÃ±": Exit Function
+            If ms = 9 Then Miesiac_Slownie = "wrzesieÃ±": Exit Function
+            If ms = 10 Then Miesiac_Slownie = "paÅ¸dziernik": Exit Function
             If ms = 11 Then Miesiac_Slownie = "listopad": Exit Function
-            If ms = 12 Then Miesiac_Slownie = "grudzieñ": Exit Function
+            If ms = 12 Then Miesiac_Slownie = "grudzieÃ±": Exit Function
         End If
     Else
-        Miesiac_Slownie = "Wart. nie jest dat¹?!"
+        Miesiac_Slownie = "Wart. nie jest datÂ¹?!"
     End If
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''month
 Function Miesiac_Liczba_Na_Rzymskie(KomorkaD As Range) As String
     Dim ms As Integer
     If IsDate(KomorkaD) = True Then
@@ -726,9 +791,11 @@ Function Miesiac_Liczba_Na_Rzymskie(KomorkaD As Range) As String
             If ms = 12 Then Miesiac_Liczba_Na_Rzymskie = "XII": Exit Function
         End If
     Else
-        Miesiac_Liczba_Na_Rzymskie = "Wart. nie jest dat¹?!"
+        Miesiac_Liczba_Na_Rzymskie = "Wart. nie jest datÂ¹?!"
     End If
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''delete empty lines in selected cell
 Sub Usun_Puste_Linie_w_Komorce()
     Dim Komor As Range
     Dim Wkb1 As Workbook
@@ -752,6 +819,8 @@ Sub Usun_Puste_Linie_w_Komorce()
                 End If
             Next Komor
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''delete empty lines in text
 Function Usun_Puste_Linie_w_tekscie(TekstX As String) As String
     Dim Tekst1 As String
     Dim ile As Integer
@@ -764,6 +833,8 @@ Function Usun_Puste_Linie_w_tekscie(TekstX As String) As String
     Wend
     Usun_Puste_Linie_w_tekscie = TekstX
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub UsunWykresy_wDodatku()
     Dim WkbWykres As Workbook
     Dim WksWykres As Worksheet
@@ -771,6 +842,8 @@ Sub UsunWykresy_wDodatku()
     Set WksWykres = WkbWykres.Worksheets("WykresVBA")
             If WksWykres.ChartObjects.Count > 0 Then WksWykres.ChartObjects.Delete
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''search in google
 Public Sub OpenUrl()
     Dim lSuccess As Long
         TekstSearchGoogle = LTrim(TekstSearchGoogle)
@@ -778,6 +851,8 @@ Public Sub OpenUrl()
         TekstSearchGoogle = Replace(TekstSearchGoogle, " ", "+")
             lSuccess = ShellExecute(0, "Open", "https://www.google.pl/?gws_rd=ssl#q=" & TekstSearchGoogle)
 End Sub
+
+
 Function Rozbij_Tekst(CustomText As String) As Collection
     Dim ChrPoz As Long
     Dim CollectionStr As New Collection
@@ -793,6 +868,8 @@ Function Rozbij_Tekst(CustomText As String) As Collection
     CollectionStr.Add CustomText
     Set Rozbij_Tekst = CollectionStr
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''count cells by colour
 Function Licz_Komorki_wgKoloru(LiczZakres As Range, Optional KomorkaKolor As Range = Nothing) As Long
     Dim KomorkaLicz As Range
     On Error GoTo errExt
@@ -803,6 +880,8 @@ Function Licz_Komorki_wgKoloru(LiczZakres As Range, Optional KomorkaKolor As Ran
         Next
 errExt:
 End Function
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Grupowanie_wierszy()
     Dim xRow, LastRow, xCnt As Long
     Dim KomRng As Range
