@@ -41,19 +41,23 @@ Private Sub ButtonCzysc_Click()
     UFormINFO.FrameProgress.Visible = False
     UFormINFO.LabelStatusBar.Visible = True
     UFormINFO.ButtonIdxSzczegoly.Visible = False
-    UFormINFO.ComboBoxWyborOpcji.Value = "Ca≥a kartoteka"
-    UFormINFO.MultiPage2.Pages("PageZuzycie").Caption = "Zuøycie w latach"
+    UFormINFO.ComboBoxWyborOpcji.Value = "Ca¬≥a kartoteka"
+    UFormINFO.MultiPage2.Pages("PageZuzycie").Caption = "Zu¬øycie w latach"
     UFormINFO.LabelStatusBar.Caption = "Autor dodatku: Jakub Koziorowski ; "
     UFormINFO.LabelKomOrgPobierTYT.Caption = "Komorki org. pobierajace mat."
     UFormINFO.Label1.Caption = "Data ostatniej transakcji"
     UFormINFO.LabelDataPrzychTYT.Caption = "Data PZ"
     UFormINFO.LabelDataRozchTYT.Caption = "Data RW"
-    UFormINFO.LabelOgolTYT.Caption = "Data ostatnia ogÛ≥."
+    UFormINFO.LabelOgolTYT.Caption = "Data ostatnia og√≥¬≥."
     VerSzukajIdx = 0: UFormNr = 0
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonIdxSzczegoly_MouseMove(ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
     ButtonIdxSzczegoly.BackColor = &HC000&
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ComboBoxWyborOpcji_Change()
     If UFormINFO.ComboBoxWyborOpcji.MatchFound = True Then
         UFormINFO.ListBoxSzukajIndeks.Clear
@@ -94,6 +98,8 @@ Private Sub ComboBoxWyborOpcji_Change()
         End If
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub Label1_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.Label1.Caption = "Data ostatniej transakcji" Then
         UFormINFO.Label1.Caption = "Zuzycie"
@@ -104,15 +110,21 @@ Private Sub Label1_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
         UFormINFO.Label1.Caption = "Data ostatniej transakcji"
         UFormINFO.LabelDataPrzychTYT.Caption = "Data PZ"
         UFormINFO.LabelDataRozchTYT.Caption = "Data RW"
-        UFormINFO.LabelOgolTYT.Caption = "Data ostatnia ogÛ≥."
+        UFormINFO.LabelOgolTYT.Caption = "Data ostatnia og√≥¬≥."
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub LabelKomOrgPobierTYT_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.LabelKomOrgPobierTYT.Caption = "Komorki org. pobierajace mat." Then UFormINFO.LabelKomOrgPobierTYT.Caption = "Ostatni zakup - firma" Else UFormINFO.LabelKomOrgPobierTYT.Caption = "Komorki org. pobierajace mat."
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub MultiPage1_MouseMove(ByVal Index As Long, ByVal Button As Integer, ByVal Shift As Integer, ByVal x As Single, ByVal Y As Single)
     UFormINFO.ButtonIdxSzczegoly.BackColor = &HFFC0C0
 End Sub
+               
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonPokazTransIdx_Click()
     Dim IdxPozList As Long
         IdxSzukF = ""
@@ -124,10 +136,14 @@ Private Sub ButtonPokazTransIdx_Click()
                 FormTransIdxList.Show vbModeless
         End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonPominIdx_Click()
     PominVer = 1: UFormNr = 2
     UFormRefEditPominIdx.Show
 End Sub
+                  
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonPominIdx2_Click()
     PominVer = 2: UFormNr = 2
     UFormRefEditPominIdx.Show
@@ -716,7 +732,7 @@ NastepnyIdx:
         UFormINFO.FrameProgress.Visible = False
         UFormINFO.LabelStatusBar.Visible = True
         UFormINFO.LabelStatusBar.Caption = "Autor dodatku: Jakub Koziorowski ; " & Chr(13) & _
-                                                "£πcznie: " & IlePobrane & " z " & IlePobrane
+                                                "¬£¬πcznie: " & IlePobrane & " z " & IlePobrane
     Application.ScreenUpdating = True
     UFormINFO.MousePointer = fmMousePointerDefault
     DoEvents
@@ -727,12 +743,14 @@ error:
     UFormINFO.FrameProgress.Visible = False
     UFormINFO.LabelStatusBar.Visible = True
     UFormINFO.LabelStatusBar.Caption = "Autor dodatku: Jakub Koziorowski ; " & Chr(13) & _
-                                                "B≥πd po≥πczenia !!!"
+                                                "B¬≥¬πd po¬≥¬πczenia !!!"
     UFormINFO.MousePointer = fmMousePointerDefault
     DoEvents
     If UFormINFO.Visible = False Then UFormINFO.Show vbModeless
     Exit Sub
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonSzukGoogle_Click()
     UFormINFO.MousePointer = fmMousePointerHourGlass
     DoEvents
@@ -741,6 +759,8 @@ Private Sub ButtonSzukGoogle_Click()
     UFormINFO.MousePointer = fmMousePointerDefault
     DoEvents
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub CheckBoxMinimal_Click()
     If UFormINFO.CheckBoxMinimal.Value = True Then
         UFormINFO.Height = "96,75"
@@ -752,6 +772,8 @@ Private Sub CheckBoxMinimal_Click()
         UFormINFO.Left = Application.Left + Application.Width - 30 - UFormINFO.Width
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub LabelLpTYT_Click()
     Dim SelAC As Range
         Set SelAC = ActiveCell
@@ -765,6 +787,8 @@ Private Sub LabelLpTYT_Click()
         SelAC.Offset(, 7) = UFormINFO.LabelKomOrgPobierTYT.Caption
     ActiveSheet.Columns.AutoFit
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ListBoxSzukajIndeks_Click()
     Dim ActPozLi As Long
     Dim a, c As String
@@ -779,6 +803,8 @@ Private Sub ListBoxSzukajIndeks_Click()
                 UFormINFO.ButtonIdxSzczegoly.Top = a + ((ActPozLi - c) * 9.81)
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonIdxSzczegoly_Click()
     Dim ActPozLi As Long
     Application.Calculation = xlCalculationManual
@@ -788,7 +814,7 @@ Private Sub ButtonIdxSzczegoly_Click()
             Call IndeksCzyscB_Click
             ActPozLi = UFormINFO.ListBoxSzukajIndeks.ListIndex
             If ActPozLi = -1 Then
-                MsgBox "Nie zaznaczy≥eú pozycji na liúcie !!!"
+                MsgBox "Nie zaznaczy¬≥e¬ú pozycji na li¬úcie !!!"
             Else
                 UFormINFO.IndeksTxtBox.Value = UFormINFO.ListBoxSzukajIndeks.List(ActPozLi, 1)
                 Call IndeksSzukajB_Click
@@ -829,7 +855,7 @@ Private Sub ListBoxSzukajIndeks_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
             PytanieX = 0
             ActRow = 0: LastRow = 0: yaRow = 0: ActCol = 0: ListRow1 = 0
             If ActiveCell <> "" Then
-                PytanieX = MsgBox("komÛrka ktÛra jest zaznaczona, nie jest pusta. Czy dodaÊ mimo to ?", vbYesNo)
+                PytanieX = MsgBox("kom√≥rka kt√≥ra jest zaznaczona, nie jest pusta. Czy doda√¶ mimo to ?", vbYesNo)
                 Select Case PytanieX
                     Case vbYes
                         ActRow = ActiveCell.Row
@@ -889,7 +915,7 @@ Private Sub ListBoxSzukajIndeks_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
         If UFormINFO.CheckBoxDodCalaLista = True Then
             UFormINFO.ListBoxSzukajIndeks.Clear
             UFormINFO.LabelStatusBar.Caption = "Autor dodatku: Jakub Koziorowski ; " & Chr(13) & _
-                                                    "£πcznie: " & (UFormINFO.ListBoxSzukajIndeks.ListCount) & " z " & IlePobrane
+                                                    "¬£¬πcznie: " & (UFormINFO.ListBoxSzukajIndeks.ListCount) & " z " & IlePobrane
         Else
             UFormINFO.ListBoxSzukajIndeks.RemoveItem (ab)
                 xPoz = (UFormINFO.ListBoxSzukajIndeks.ListCount) - 1
@@ -899,7 +925,7 @@ Private Sub ListBoxSzukajIndeks_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
                     xLp = xLp + 1
                 Next
             UFormINFO.LabelStatusBar.Caption = "Autor dodatku: Jakub Koziorowski ; " & Chr(13) & _
-                                                    "£πcznie: " & (UFormINFO.ListBoxSzukajIndeks.ListCount) & " z " & IlePobrane
+                                                    "¬£¬πcznie: " & (UFormINFO.ListBoxSzukajIndeks.ListCount) & " z " & IlePobrane
         End If
     End If
     If UFormINFO.Visible = False Then UFormINFO.Show vbModeless
@@ -908,15 +934,21 @@ End Sub
 Private Sub TextBoxKomOrgFiltr_Enter()
     If UFormINFO.TextBoxKomOrgFiltr.Value = "Komorka Org." Then UFormINFO.TextBoxKomOrgFiltr.Value = ""
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxKomOrgFiltr_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.TextBoxKomOrgFiltr.Value = "" Then UFormINFO.TextBoxKomOrgFiltr.Value = "Komorka Org."
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxDostawca_Enter()
     If UFormINFO.TextBoxDostawca.Value = "Dostawca" Then
         UFormINFO.TextBoxDostawca.Value = "": UFormNr = 2
         UFormDostawcyKonta.Show
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxDostawca_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.TextBoxDostawca.Value = "" Then
         UFormINFO.TextBoxDostawca.Value = "Dostawca": UFormNr = 0
@@ -929,6 +961,8 @@ Private Sub TextBoxDostawca_Exit(ByVal Cancel As MSForms.ReturnBoolean)
             UFormINFO.TextBoxDataUtworzenia.Enabled = False
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxGrupaMaterialowa_Enter()
     If UFormINFO.TextBoxGrupaMaterialowa.Value = "Gr. mat." Then UFormINFO.TextBoxGrupaMaterialowa.Value = ""
 End Sub
@@ -947,6 +981,8 @@ End Sub
 Private Sub TextBoxNazwaTowaru_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.TextBoxNazwaTowaru.Value = "" Then UFormINFO.TextBoxNazwaTowaru.Value = "Nazwa towaru"
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxDataUtworzenia_Enter()
     If UFormINFO.TextBoxDataUtworzenia.Value = "Data utworzenia" Then
         UFormINFO.TextBoxDataUtworzenia.Value = ""
@@ -963,6 +999,8 @@ Private Sub TextBoxDataUtworzenia_Enter()
         CzyDataKalend = False
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub TextBoxDataUtworzenia_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.TextBoxDataUtworzenia.Value = "" Then
         CzyDataKalend = False
@@ -970,18 +1008,12 @@ Private Sub TextBoxDataUtworzenia_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     End If
     CzyDataKalend = False
 End Sub
-'============================================================================================================================
-'-----------------------------------------Dot. Zakladki Szukaj indeksu------------------------------------------koniec sekcji
-'============================================================================================================================
-''===========================================================================================================================
 
-
-'============================================================================================================================
-'-----------------------------------------Dot. Zakladki Indeks------------------------------------------------poczatek sekcji
-'============================================================================================================================
+'-----------------------------------------Dot. Zakladki Indeks------------------------------------------------
+'=============================================================================================================
 Private Sub IndeksCzyscB_Click()
     UFormINFO.IndeksTxtBox.Value = "podaj indeks"
-    UFormINFO.ComboBoxRwCzyPZ.Value = "Zuøycie w latach"
+    UFormINFO.ComboBoxRwCzyPZ.Value = "Zu¬øycie w latach"
     UFormINFO.ComboBoxKomOrg.Value = ""
     UFormINFO.IndeksNazwa.Value = "": UFormINFO.IndeksJM.Value = "": UFormINFO.IndeksGrMat.Value = "": UFormINFO.IndeksNazwaGrMat.Value = ""
     UFormINFO.IndeksAlias.Value = "": UFormINFO.IndeksDataUtw.Value = "": UFormINFO.IndeksKtoUtw.Value = "": UFormINFO.IndeksDataMod.Value = ""
@@ -1004,11 +1036,15 @@ Private Sub IndeksCzyscB_Click()
             UFormINFO.Indeks_ImageWykresZuzycie.Picture = Nothing
         End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ComboBoxRwCzyPZ_Change()
     If UFormINFO.ComboBoxRwCzyPZ.MatchFound = True Then
-        If UFormINFO.ComboBoxRwCzyPZ.Value = "Zuøycie w latach" Then UFormINFO.ComboBoxKomOrg.Enabled = True Else UFormINFO.ComboBoxKomOrg.Value = "": UFormINFO.ComboBoxKomOrg.Enabled = False
+        If UFormINFO.ComboBoxRwCzyPZ.Value = "Zu¬øycie w latach" Then UFormINFO.ComboBoxKomOrg.Enabled = True Else UFormINFO.ComboBoxKomOrg.Value = "": UFormINFO.ComboBoxKomOrg.Enabled = False
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub ButtonOblicz_Click()
     If UFormINFO.ComboBoxRwCzyPZ.MatchFound = True Then
         UFormINFO.MultiPage2.Pages("PageZuzycie").Caption = UFormINFO.ComboBoxRwCzyPZ.Value
@@ -1029,6 +1065,8 @@ Private Sub ButtonOblicz_Click()
         End If
     End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksPokazTransakcjeB_Click()
     Dim IdxPozList As Long
     IdxSzukF = ""
@@ -1039,6 +1077,8 @@ Private Sub IndeksPokazTransakcjeB_Click()
                 FormTransIdxList.Show vbModeless
         End If
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksSzukajB_Click()
     Dim IndeksStr As String
     Dim xRok As Integer, i As Integer
@@ -1157,7 +1197,7 @@ Private Sub IndeksSzukajB_Click()
                         .List(x2, 5) = xR5
                         .List(x2, 6) = xR6
                     End With
-                    xR = "R": xR1 = "": xR2 = "ZAKUPY £•CZNIE: "
+                    xR = "R": xR1 = "": xR2 = "ZAKUPY ¬£¬•CZNIE: "
                     xR3 = Format(Abs(CDbl(Application.WorksheetFunction.Sum( _
                                                                 SumaTransakcjiDlaIdx(IndeksStr, 6, "*PZ/*"), _
                                                                 SumaTransakcjiDlaIdx(IndeksStr, 24, "*PZ/*")))), "#,##0.00")
@@ -1180,6 +1220,8 @@ error:
     If UFormINFO.Visible = False Then UFormINFO.Show vbModeless
     Exit Sub
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Sub Zuzycie_wykres_dla_Idx()
     Dim IndeksStr As String
     Dim xRok As Integer, i As Integer
@@ -1211,7 +1253,7 @@ Sub Zuzycie_wykres_dla_Idx()
             UFormINFO.LabelRok9.Caption = xRok: UFormINFO.LabelRok8.Caption = xRok - 1: UFormINFO.LabelRok7.Caption = xRok - 2: UFormINFO.LabelRok6.Caption = xRok - 3
             UFormINFO.LabelRok5.Caption = xRok - 4: UFormINFO.LabelRok4.Caption = xRok - 5: UFormINFO.LabelRok3.Caption = xRok - 6: UFormINFO.LabelRok2.Caption = xRok - 7
             UFormINFO.LabelRok1.Caption = xRok - 8
-                If UFormINFO.ComboBoxRwCzyPZ = "Zuøycie w latach" Then
+                If UFormINFO.ComboBoxRwCzyPZ = "Zu¬øycie w latach" Then
                 If UFormINFO.ComboBoxKomOrg.Value = "" Then KomOrgSingle = "*" Else KomOrgSingle = UFormINFO.ComboBoxKomOrg.Value
                     If Indeks_Czy_RWPNU(IndeksStr) = "RW" Then
                         UFormINFO.TextBoxRok1_ilosc.Value = Abs(ZuzycieKomOrgIlosc(IndeksStr, DateSerial(CInt(LabelRok1), 1, 1), DateSerial(CInt(LabelRok1), 12, 31), KomOrgSingle))
@@ -1375,7 +1417,7 @@ Sub Zuzycie_wykres_dla_Idx()
                 Set SeriesCol_Wart = Nothing
                     Set SeriesLab_Ilosc = Nothing
                     Set SeriesLab_Wart = Nothing
-                        WksWykres.Cells(2, 1) = "iloúÊ": WksWykres.Cells(3, 1) = "wartoúÊ"
+                        WksWykres.Cells(2, 1) = "ilo¬ú√¶": WksWykres.Cells(3, 1) = "warto¬ú√¶"
                         WksWykres.Cells(1, 2) = UFormINFO.LabelRok1.Caption: WksWykres.Cells(2, 2) = UFormINFO.TextBoxRok1_ilosc.Value: WksWykres.Cells(3, 2) = CDbl(UFormINFO.TextBoxRok1_wartosc.Value)
                         WksWykres.Cells(1, 3) = UFormINFO.LabelRok2.Caption: WksWykres.Cells(2, 3) = UFormINFO.TextBoxRok2_ilosc.Value: WksWykres.Cells(3, 3) = CDbl(UFormINFO.TextBoxRok2_wartosc.Value)
                         WksWykres.Cells(1, 4) = UFormINFO.LabelRok3.Caption: WksWykres.Cells(2, 4) = UFormINFO.TextBoxRok3_ilosc.Value: WksWykres.Cells(3, 4) = CDbl(UFormINFO.TextBoxRok3_wartosc.Value)
@@ -1385,7 +1427,7 @@ Sub Zuzycie_wykres_dla_Idx()
                         WksWykres.Cells(1, 8) = UFormINFO.LabelRok7.Caption: WksWykres.Cells(2, 8) = UFormINFO.TextBoxRok7_ilosc.Value: WksWykres.Cells(3, 8) = CDbl(UFormINFO.TextBoxRok7_wartosc.Value)
                         WksWykres.Cells(1, 9) = UFormINFO.LabelRok8.Caption: WksWykres.Cells(2, 9) = UFormINFO.TextBoxRok8_ilosc.Value: WksWykres.Cells(3, 9) = CDbl(UFormINFO.TextBoxRok8_wartosc.Value)
                         WksWykres.Cells(1, 10) = UFormINFO.LabelRok9.Caption: WksWykres.Cells(2, 10) = UFormINFO.TextBoxRok9_ilosc.Value: WksWykres.Cells(3, 10) = CDbl(UFormINFO.TextBoxRok9_wartosc.Value)
-                        WksWykres.Range(WksWykres.Cells(3, 2), WksWykres.Cells(3, 10)).NumberFormat = "# ##0.00 z≥"
+                        WksWykres.Range(WksWykres.Cells(3, 2), WksWykres.Cells(3, 10)).NumberFormat = "# ##0.00 z¬≥"
                     Set ZakresWykres = WksWykres.Range(WksWykres.Cells(1, 1), WksWykres.Cells(WksWykres.Cells(Rows.Count, 1).End(xlUp).Row, WksWykres.Cells(1, Columns.Count).End(xlToLeft).Column))
                     Set xChart = WksWykres.Shapes.AddChart
                         xChart.Chart.SetSourceData Source:=ZakresWykres
@@ -1456,6 +1498,8 @@ error:
     If UFormINFO.Visible = False Then UFormINFO.Show vbModeless
     Exit Sub
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksListBoxDostawcy_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
     Dim IndeksStr As String
     Dim xNrDostawcy, NrZZ_Pelny, KtoZatwierdzal, UserNameFull, xLpChck As String
@@ -1511,7 +1555,7 @@ Private Sub IndeksListBoxDostawcy_DblClick(ByVal Cancel As MSForms.ReturnBoolean
                                 NrZZ_Pelny = RecorP.field(9)
                                 If NrZZ_Pelny <> "" Then
                                     KtoZatwierdzal = Purch_StanZatwierdzen(NrZZ_Pelny)
-                                    If Len(KtoZatwierdzal) <> 0 And KtoZatwierdzal <> "B≥πd!!!" Then UserNameFull = UserId2UserFullName(CStr(KtoZatwierdzal))
+                                    If Len(KtoZatwierdzal) <> 0 And KtoZatwierdzal <> "B¬≥¬πd!!!" Then UserNameFull = UserId2UserFullName(CStr(KtoZatwierdzal))
                                     If Len(UserNameFull) = 0 And Len(KtoZatwierdzal) <> 0 Then
                                         .List(x2, 4) = KtoZatwierdzal
                                     Else
@@ -1533,6 +1577,8 @@ error:
     If UFormINFO.Visible = False Then UFormINFO.Show vbModeless
     Exit Sub
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksListBoxDostawcy_AfterUpdate()
     UFormINFO.IndeksListBoxDostawcy.Height = "137,3"
     UFormINFO.IndeksListBoxZakupy.Height = "285"
@@ -1544,6 +1590,8 @@ End Sub
 Private Sub IndeksListBoxZakupy_AfterUpdate()
     UFormINFO.IndeksListBoxZakupy.Height = "285"
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksSzukajNET_Click()
     UFormINFO.MousePointer = fmMousePointerHourGlass
     DoEvents
@@ -1551,11 +1599,13 @@ Private Sub IndeksSzukajNET_Click()
             TekstSearchGoogle = UFormINFO.IndeksNazwa.Value
             Call OpenUrl
         Else
-            MsgBox "Pole ""NAZWA MATERIA£U"" jest puste !!!"
+            MsgBox "Pole ""NAZWA MATERIA¬£U"" jest puste !!!"
         End If
     UFormINFO.MousePointer = fmMousePointerDefault
     DoEvents
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub IndeksMinimalizuj_Click()
     If UFormINFO.IndeksMinimalizuj.Value = True Then
         UFormINFO.Height = "96,75"
@@ -1567,7 +1617,7 @@ Private Sub IndeksMinimalizuj_Click()
         UFormINFO.Left = Application.Left + Application.Width - 30 - UFormINFO.Width
     End If
 End Sub
-''==== Obsluga textbox filtru ===================================================================================================================================
+''==== Obsluga textbox filtru =============================================================================================
 Private Sub IndeksTxtBox_Enter()
     If UFormINFO.IndeksTxtBox.Value = "podaj indeks" Then UFormINFO.IndeksTxtBox.Value = ""
 End Sub
@@ -1575,6 +1625,7 @@ Private Sub IndeksTxtBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If UFormINFO.IndeksTxtBox.Value = "" Then UFormINFO.IndeksTxtBox.Value = "podaj indeks"
 End Sub
 
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub UserForm_Activate()
     Dim oFormChanger As New CFormChanger
         Set oFormChanger.Form = Me
@@ -1582,9 +1633,8 @@ Private Sub UserForm_Activate()
             Me.SpecialEffect = fmSpecialEffectFlat
 End Sub
 
-'============================================================================================================================
-'-----------------------------------------Dot. Zakladki Indeks--------------------------------------------------koniec sekcji
-'============================================================================================================================
+'-----------------------------------------Dot. Zakladki Indeks--------------------------------------------------
+'===============================================================================================================
 Private Sub UserForm_Initialize()
     UFormINFO.CheckBoxCzyTylkoIndeks.Value = True
     UFormINFO.ButtonIdxSzczegoly.Visible = False
@@ -1593,16 +1643,16 @@ Private Sub UserForm_Initialize()
     UFormINFO.LabelJM.Visible = True
     UFormINFO.LabelKomOrgPobierTYT.Visible = True
     With UFormINFO.ComboBoxWyborOpcji
-        .AddItem "Ca≥a kartoteka"
+        .AddItem "Ca¬≥a kartoteka"
         .AddItem "Stany Awaryjne"
     End With
-    UFormINFO.ComboBoxWyborOpcji.Value = "Ca≥a kartoteka"
-    UFormINFO.MultiPage2.Pages("PageZuzycie").Caption = "Zuøycie w latach"
+    UFormINFO.ComboBoxWyborOpcji.Value = "Ca¬≥a kartoteka"
+    UFormINFO.MultiPage2.Pages("PageZuzycie").Caption = "Zu¬øycie w latach"
     With UFormINFO.ComboBoxRwCzyPZ
-        .AddItem "Zuøycie w latach"
+        .AddItem "Zu¬øycie w latach"
         .AddItem "Zakupy w latach"
     End With
-    UFormINFO.ComboBoxRwCzyPZ.Value = "Zuøycie w latach"
+    UFormINFO.ComboBoxRwCzyPZ.Value = "Zu¬øycie w latach"
     UFormINFO.ComboBoxKomOrg.Enabled = True
         UFormINFO.TextBoxIndeks.Value = "indeks"
         UFormINFO.TextBoxNazwaTowaru.Value = "Nazwa towaru"
@@ -1617,6 +1667,8 @@ Private Sub UserForm_Initialize()
         UFormINFO.TextBoxZakresBezIdx2.text = ""
         UFormNr = 2
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
     If Len(Dir$(Environ("HOMEPATH") & Application.PathSeparator & "PICTURES" & Application.PathSeparator & "JKoziAddInCHART.gif")) > 0 Then
         Kill Environ("HOMEPATH") & Application.PathSeparator & "PICTURES" & Application.PathSeparator & "JKoziAddInCHART.gif"
@@ -1624,13 +1676,15 @@ Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
     End If
     Application.StatusBar = "": UFormNr = 0
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Function Zamien_tekst_PRIV(TekstPrzed As String) As String
     Dim TekstPo As String
     Dim a, b As Long
     Dim TblZnak As New Collection
     Dim a1, a2, a3 As String
-        TblZnak.Add "•": TblZnak.Add "∆": TblZnak.Add " ": TblZnak.Add "£": TblZnak.Add "—"
-        TblZnak.Add "”": TblZnak.Add "å": TblZnak.Add "è": TblZnak.Add "Ø": TblZnak.Add "."
+        TblZnak.Add "¬•": TblZnak.Add "√Ü": TblZnak.Add "√ä": TblZnak.Add "¬£": TblZnak.Add "√ë"
+        TblZnak.Add "√ì": TblZnak.Add "¬å": TblZnak.Add "¬è": TblZnak.Add "¬Ø": TblZnak.Add "."
         TblZnak.Add "/": TblZnak.Add "\": TblZnak.Add ";": TblZnak.Add ":": TblZnak.Add "'"
         TblZnak.Add """": TblZnak.Add "-": TblZnak.Add "+": TblZnak.Add "_": TblZnak.Add " "
         TblZnak.Add ",": TblZnak.Add "**": TblZnak.Add "***": TblZnak.Add "??": TblZnak.Add "*?"
@@ -1650,6 +1704,7 @@ Private Function Zamien_tekst_PRIV(TekstPrzed As String) As String
             TekstPo = RTrim(TekstPo)
                 Zamien_tekst_PRIV = TekstPo
 End Function
+
 ''==== sortowanie listboxa ======================================================================
 Sub SortListBox_fVAT(lst As MSForms.ListBox, xCl As Long)
     Dim arrItems As Variant
@@ -1722,6 +1777,8 @@ Sub SortListBox_fVAT(lst As MSForms.ListBox, xCl As Long)
         xLp = xLp + 1
     Next intOuter
 End Sub
+
+'''''''''''''''''''''''''''''''''''''''''''''''
 Private Function czyWkolekcji_UFormInfo(igla As Variant, stog As Collection) As Boolean
 Dim element As Variant
 czyWkolekcji_UFormInfo = False
