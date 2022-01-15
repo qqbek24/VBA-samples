@@ -1,0 +1,17 @@
+- Paste below code in excel worksheet VBE
+- change in worksheet cell format to default date format
+
+
+Private Sub Worksheet_SelectionChange(ByVal Target As Range)
+    Dim DateFormats, DF
+    DateFormats = Array("m/d/yy;@", "mmmm d yyyy", "m/d/yyyy", "dd-mm-yyyy")
+    For Each DF In DateFormats
+        If DF = Target.NumberFormat Then
+            If CalendarFrm.HelpLabel.Caption <> "" Then
+                CalendarFrm.Height = 191 + CalendarFrm.HelpLabel.Height
+            Else: CalendarFrm.Height = 191
+                CalendarFrm.Show
+            End If
+        End If
+    Next
+End Sub
